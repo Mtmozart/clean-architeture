@@ -15,4 +15,9 @@ public class FactoryUser {
         this.user.setAddress(new Address(cep, number, complement));
         return this.user;
     }
+
+    public User withNameCpfBithEmail(String cpf, String name, LocalDate bith, String email){
+        this.user = new User(cpf, name, bith, email);
+        return this.user;
+    }
 }
