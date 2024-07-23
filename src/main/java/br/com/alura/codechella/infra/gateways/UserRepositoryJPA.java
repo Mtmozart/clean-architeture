@@ -6,6 +6,7 @@ import br.com.alura.codechella.infra.persistence.UserEntity;
 import br.com.alura.codechella.infra.persistence.UsuarioRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class UserRepositoryJPA implements UserRepository {
 
@@ -27,7 +28,7 @@ public class UserRepositoryJPA implements UserRepository {
 
     @Override
     public List<User> listarTodos() {
-       // return repository.findAll();
-        return null;
+        return repository.findAll().stream().map(userEntityMapper::toDomain).collect(Collectors.toUnmodifiableList());
+
     }
 }
